@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Logging Enhancer</title>
+    <link rel="stylesheet" href="popup.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            display: none; /* Hidden by default */
+            position: fixed; /* Positioned above other elements */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* High z-index to appear above other elements */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #totalLines h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #logStructure label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #logInput {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #logStructure button,
+        #updateSection button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        #logStructure button:hover,
+        #updateSection button:hover {
+            background-color: #2980b9;
+        }
+
+        #statusMessage {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #333;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        #popupMessage {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="loader" id="loader"></div>
+<div id="totalLines">
+    <h2>Total Lines: <span id="lineCount">0</span></h2>
+</div>
+
+<div id="logStructure">
+    <label for="logInput">Log Line Number Placeholder:</label>
+    <textarea id="logInput" placeholder="Add your line number placeholder in log to file action"></textarea>
+    <button id="copyButton">Copy</button>
+</div>
+
+<div id="updateSection">
+    <button id="updateButton">Update Bot</button>
+</div>
+
+<div id="statusMessage"></div>
+<div id="popupMessage"></div> <!-- Added this element for popup messages -->
+
+<script src="popup.js"></script>
+</body>
+</html>
