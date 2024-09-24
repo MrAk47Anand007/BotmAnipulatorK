@@ -16,7 +16,7 @@ h2 {
     margin-top: 15px;        /* Space between sections */
 }
 
-textarea#logInput {
+textarea{
     width: 100%;             /* Make the text area fill the width */
     height: 80px;            /* Adjust height as needed */
     padding: 5px;
@@ -31,6 +31,11 @@ button {
     border: none;
     cursor: pointer;
     margin-top: 5px;
+}
+
+footer{
+    margin-top: 10px;
+    flex-direction: column;
 }
 
 button:hover {
