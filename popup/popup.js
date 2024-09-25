@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("logActionTab").click();
 
 
-    // Get references to DOM elements
+    // Get references of extensions DOM elements
     const lineCountSpan = document.getElementById('lineCount');
     const logInput = document.getElementById('logInput');
     const copyButton = document.getElementById('copyButton');
@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const refreshButton = document.getElementById('refreshButton');
 
 
+    /**
+     * Function to check authentication token properly retrieved - if yes then hide refresh button else show refresh button.
+     */
     function checkForAuthTokenError() {
         if (statusMessage.textContent === "Error retrieving auth token.") {
             refreshButton.style.display = 'block'; // Show the refresh button
@@ -80,13 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to check if the current page is an A360 bot page
+    /**
+     * Function to check if the current page is an A360 bot page
+     * @param {*} url - string - URL of current chrome tab
+     * @returns bool - true or false based on URL provided if it is A360 based URL then true else false
+     */
     function isA360BotPage(url) {
         const pattern = /#\/bots\/repository\/private\/taskbots\//;
         return pattern.test(url);
     }
 
-    // Asynchronous function to fetch and display the line count
+    /**
+     * Asynchronous function to fetch and display the line count
+     */
     async function fetchAndDisplayLineCount() {
         console.log("Starting fetchAndDisplayLineCount");
         showLoader();
@@ -101,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("Processed auth token:", authToken);
 
                 console.log("Sending message to get bot content");
+
+                // Call getBotContent action using chrome send message which will return promise which will contain bot content.
                 const response = await new Promise((resolve, reject) => {
                     chrome.runtime.sendMessage(
                         {

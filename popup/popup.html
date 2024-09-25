@@ -1,3 +1,5 @@
+<!-- Version I -->
+<!-- -------------------------------------------------------------------------------- -->
 <!--<!DOCTYPE html>-->
 <!--<html>-->
 <!--<head>-->
@@ -196,8 +198,8 @@
 <!--&lt;!&ndash;</body>&ndash;&gt;-->
 <!--&lt;!&ndash;</html>&ndash;&gt;-->
 
-
-
+<!-- Version 2 -->
+<!-- ------------------------------------------------------------------------------------------------ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -359,38 +361,43 @@
 <body>
 <div class="loader" id="loader"></div>
 
+<!-- Button tab on top of extension - Log Action and Copy Bot Action buttons -->
 <div class="tab">
     <button class="tablinks active" id="logActionTab">Log Action</button>
     <button class="tablinks" id="copyBotActionTab">Copy Bot Action</button>
 </div>
 
+<!-- Tab 1 - Log Action -->
+<!-- Main Area - Content, placeholder input -->
 <div id="LogAction" class="tabcontent" style="display: block;">
     <div id="totalLines">
-        <h2>Total Lines: <span id="lineCount">0</span></h2>
+        <h2>Total Lines: <span id="lineCount">0</span></h2> <!-- Show total lines number in bot -->
     </div>
     <div id="logStructure">
-        <label for="logInput">Log Line Number Placeholder:</label>
-        <textarea id="logInput" placeholder="Add your line number placeholder in log to file action"></textarea>
+        <label for="logInput">Log Line Number Placeholder:</label> <!-- Log line number placeholder label -->
+        <textarea id="logInput" placeholder="Add your line number placeholder in log to file action"></textarea> <!-- Text area input to enter log line number placeholder -->
     </div>
     <div id="updateSection">
-        <button id="updateButton">Update Bot</button>
+        <button id="updateButton">Update Bot</button> <!-- update bot button to update bot based on new line number -->
     </div>
 </div>
 
+<!-- Copy bot tab HTML - which contains input field and button to perform copy and patch content actions in Copy bot Tab -->
+<!-- Tab 2 - Copy Bot Action -->
 <div id="CopyBotAction" class="tabcontent">
     <div id="copyStructure">
-        <label for="contentInput">Paste Copied Content Here:</label>
-        <textarea id="contentInput" placeholder="Add Copied Content Here"></textarea>
+        <label for="contentInput">Paste Copied Content Here:</label> <!-- Tab 2 - Paste copied content label -->
+        <textarea id="contentInput" placeholder="Add Copied Content Here"></textarea> <!-- Add copied content here text area input to enter copied content -->
         <button id="copyButton">Copy</button>
         <button id="patchContent">Patch Content</button>
     </div>
 </div>
 
+<!-- Refresh button only visible when any error happens -->
 <div id="statusMessage"></div>
 <div id="popupMessage"></div>
 <button id="refreshButton">Refresh</button>
 <footer id="footer">A.K</footer>
-
 <script src="popup.js"></script>
 </body>
 </html>
